@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "860000000089",
+    "firebase_url": "https://zetafashionandroid-default-rtdb.firebaseio.com",
+    "project_id": "zetafashionandroid",
+    "storage_bucket": "zetafashionandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860000000089:android:1793a2ae8fb6df285b7948",
+        "android_client_info": {
+          "package_name": "com.example.zetafashion_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860000000089-es4f6rc8m021ftudrji3tohdjr0qtqdj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXQn7W6ZsZZmegRq0UrYb5vHYONvXCuPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860000000089-es4f6rc8m021ftudrji3tohdjr0qtqdj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

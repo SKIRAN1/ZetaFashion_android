@@ -59,13 +59,13 @@ public class ProfilepageActivity extends AppCompatActivity {
             }
         });
 
-        wallet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ProfilepageActivity.this, WalletpageActivity.class);
-                startActivity(intent);
-            }
-        });
+//        wallet.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(ProfilepageActivity.this, WalletpageActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         cart.setOnClickListener(new View.OnClickListener() {
             @Override

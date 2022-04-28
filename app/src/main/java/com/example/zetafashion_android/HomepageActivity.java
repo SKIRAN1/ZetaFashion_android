@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.denzcoskun.imageslider.ImageSlider;
-import com.denzcoskun.imageslider.models.SlideModel;
+//import com.denzcoskun.imageslider.ImageSlider;
+//import com.denzcoskun.imageslider.models.SlideModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import java.util.List;
 
 public class HomepageActivity extends AppCompatActivity {
 
-    ImageSlider imageSlider;
+//    ImageSlider imageSlider;
     ImageView profile,cart;
     TextView title;
 
@@ -43,21 +43,21 @@ public class HomepageActivity extends AppCompatActivity {
         title = findViewById(R.id.title);
         profile = findViewById(R.id.profile);
         cart = findViewById(R.id.cart);
-        imageSlider = findViewById(R.id.slider);
+//        imageSlider = findViewById(R.id.slider);
         recyclerView = findViewById(R.id.recyclerView);
 
 //        MyAdapter myAdapter = new MyAdapter(this , images);
 //        recyclerView.setAdapter(myAdapter);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        List<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel(R.drawable.sliderimage1));
-        slideModels.add(new SlideModel(R.drawable.sliderimage2));
-        slideModels.add(new SlideModel(R.drawable.sliderimage3));
-        slideModels.add(new SlideModel(R.drawable.sliderimage4));
-        slideModels.add(new SlideModel(R.drawable.sliderimage5));
-        slideModels.add(new SlideModel(R.drawable.sliderimage6));
-        imageSlider.setImageList(slideModels, true);
+//        List<SlideModel> slideModels = new ArrayList<>();
+//        slideModels.add(new SlideModel(R.drawable.sliderimage1));
+//        slideModels.add(new SlideModel(R.drawable.sliderimage2));
+//        slideModels.add(new SlideModel(R.drawable.sliderimage3));
+//        slideModels.add(new SlideModel(R.drawable.sliderimage4));
+//        slideModels.add(new SlideModel(R.drawable.sliderimage5));
+//        slideModels.add(new SlideModel(R.drawable.sliderimage6));
+//        imageSlider.setImageList(slideModels, true);
 
 
         title.setOnClickListener(new View.OnClickListener() {
