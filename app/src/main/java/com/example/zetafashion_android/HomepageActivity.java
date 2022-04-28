@@ -66,13 +66,6 @@ public class HomepageActivity extends AppCompatActivity {
             }
         });
 
-        wallet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomepageActivity.this, WalletpageActivity.class);
-                startActivity(intent);
-            }
-        });
 
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
