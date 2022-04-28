@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="352dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+<!--    <EditText-->
+<!--        android:id="@+id/et_Email"-->
+<!--        android:layout_width="340dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginTop="44dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Email"-->
+<!--        android:inputType="textEmailAddress"-->
+<!--        android:textSize="24dp"-->
+<!--        android:textColor="@android:color/holo_orange_dark"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.496"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/imageView"-->
+<!--        />-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_Email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="28dp"
+        app:boxStrokeColor="@color/black"
+        android:hint="Email"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_baseline_email_24"
+        app:hintTextColor="@android:color/holo_red_dark"
+        app:errorTextColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tf_Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:cursorVisible="false"
+            android:textSize="20dp"
+            android:textColor="@android:color/holo_orange_dark"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!--    <EditText-->
+<!--        android:id="@+id/et_Password"-->
+<!--        android:layout_width="340dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Password"-->
+<!--        android:textSize="24dp"-->
+<!--        android:textColor="@android:color/holo_orange_dark"-->
+<!--        android:inputType="numberPassword"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/et_Email" />-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_Password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="28dp"
+        android:hint="Password"
+        app:hintTextColor="@android:color/holo_red_dark"
+        app:boxStrokeColor="@color/black"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:cursorVisible="false"
+            android:inputType="numberPassword"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@android:color/black"
+        android:capitalize="none"
+        android:text="LogIn"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Password" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="325dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
+        android:text="      Don't have Account? SignUp"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="94dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:srcCompat="@drawable/facebooklogo" />
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/btn_google"-->
+<!--        android:layout_width="95dp"-->
+<!--        android:layout_height="95dp"-->
+<!--        android:layout_marginStart="68dp"-->
+<!--        android:layout_marginBottom="32dp"-->
+<!--        android:clickable="true"-->
+<!--        android:onClick="signIn"-->
+<!--        android:background="@drawable/googlelogo"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imageView2" />-->
+<!--    <Button-->
+<!--        android:id="@+id/btn_google"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginStart="64dp"-->
+<!--        android:layout_marginBottom="36dp"-->
+<!--        android:background="@drawable/googlelogo"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imageView2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/loginButton"-->
+<!--        app:layout_constraintVertical_bias="0.974" />-->
+
+    <ImageView
+        android:id="@+id/btn_google"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="76dp"
+        android:src="@drawable/googlelogo"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

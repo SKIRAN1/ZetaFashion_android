@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -23,8 +25,14 @@ import java.util.List;
 public class HomepageActivity extends AppCompatActivity {
 
     ImageSlider imageSlider;
-    ImageView profile,wallet,cart;
+    ImageView profile,cart;
     TextView title;
+
+    RecyclerView recyclerView;
+
+//    int images[] = {R.drawable.blue_blazer, R.drawable.blue_denim,R.drawable.classic_tshirt,R.drawable.green_tshirt,
+//            R.drawable.red_shirt,R.drawable.skull_shirt,R.drawable.tiger_shirt,R.drawable.white_tshirt,
+//            R.drawable.yellow_shirt};
 
 
     @Override
@@ -35,9 +43,12 @@ public class HomepageActivity extends AppCompatActivity {
         title = findViewById(R.id.title);
         profile = findViewById(R.id.profile);
         cart = findViewById(R.id.cart);
-        wallet = findViewById(R.id.wallet);
         imageSlider = findViewById(R.id.slider);
+        recyclerView = findViewById(R.id.recyclerView);
 
+//        MyAdapter myAdapter = new MyAdapter(this , images);
+//        recyclerView.setAdapter(myAdapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         List<SlideModel> slideModels = new ArrayList<>();
         slideModels.add(new SlideModel(R.drawable.sliderimage1));
@@ -65,7 +76,6 @@ public class HomepageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
