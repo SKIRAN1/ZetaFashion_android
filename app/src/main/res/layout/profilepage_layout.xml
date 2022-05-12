@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomepageActivity"
+    android:background="@color/white"
+    >
+
+    <include layout="@layout/appbar" />
+
+    <RelativeLayout
+        android:id="@+id/pic_layout"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_below="@+id/myAppBar"
+        android:background="@drawable/men_category"
+
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circular_pic"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/men_category" />
+
+        <TextView
+            android:id="@+id/userAccountName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/circular_pic"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="140dp"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="32dp" />
+
+    </RelativeLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/pic_layout"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_userAccountEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_margin="15dp"
+            app:boxStrokeColor="@color/black"
+            android:hint="Email"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_baseline_email_24"
+            app:hintTextColor="@android:color/holo_red_dark"
+            app:errorTextColor="@android:color/holo_red_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tf_userAccountEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="20dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_userAccountPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_margin="15dp"
+            android:hint="Password"
+            app:hintTextColor="@android:color/holo_red_dark"
+            app:boxStrokeColor="@color/black"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_below="@id/et_userAccountEmail"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tf_userAccountPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:cursorVisible="false"
+                android:inputType="numberPassword"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="20dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_userAccountPhone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:hint="Phone Number"
+            android:layout_margin="15dp"
+            app:prefixText="+1"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_baseline_phone_24"
+            app:boxStrokeColor="@color/black"
+            app:errorTextColor="@android:color/holo_red_dark"
+            app:hintTextColor="@android:color/holo_red_dark"
+           android:layout_below="@id/et_userAccountPassword"
+            >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tf_userAccountPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:ems="10"
+            android:inputType="number"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_signOut"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/et_userAccountPhone"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="107dp"
+            android:layout_marginTop="36dp"
+            android:backgroundTint="@android:color/black"
+            android:gravity="center"
+            android:text="SignOut"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="24dp" />
+
+
+    </RelativeLayout>
+</ScrollView>
+
+
+
+</RelativeLayout>

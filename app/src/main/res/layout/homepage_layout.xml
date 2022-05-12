@@ -18,16 +18,16 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     >
- <com.denzcoskun.imageslider.ImageSlider
-     android:layout_width="match_parent"
-     android:layout_height="match_parent"
-     android:id="@+id/slider"
-     app:corner_radius="20"
-     app:delay="0"
-     app:period="4000"
-     app:auto_cycle="true"
-     android:layout_margin="20dp"
-     />
+<!-- <com.denzcoskun.imageslider.ImageSlider-->
+<!--     android:layout_width="match_parent"-->
+<!--     android:layout_height="match_parent"-->
+<!--     android:id="@+id/slider"-->
+<!--     app:corner_radius="20"-->
+<!--     app:delay="0"-->
+<!--     app:period="4000"-->
+<!--     app:auto_cycle="true"-->
+<!--     android:layout_margin="20dp"-->
+<!--     />-->
 </LinearLayout>
 
  <TextView
