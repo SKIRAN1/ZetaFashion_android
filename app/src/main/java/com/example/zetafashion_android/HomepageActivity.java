@@ -14,10 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.zetafashion_android.Adapter.CategoryAdapter;
 import com.example.zetafashion_android.Adapter.HomeAdapter;
+import com.example.zetafashion_android.Adapter.MenAdapter;
 import com.example.zetafashion_android.Model.CartProducts;
-import com.example.zetafashion_android.Model.CategoryProducts;
+import com.example.zetafashion_android.Model.MenProducts;
 import com.example.zetafashion_android.Model.Products;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,10 +44,10 @@ public class HomepageActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     HomeAdapter homeAdapter;
-    CategoryAdapter categoryAdapter;
+    MenAdapter menAdapter;
     ArrayList<Products> products;
     ArrayList<CartProducts> cartProducts;
-    ArrayList<CategoryProducts> categoryProducts;
+    ArrayList<MenProducts> menProducts;
 
 
     int images[] = {R.drawable.blue_blazer, R.drawable.blue_denim, R.drawable.classic_tshirt, R.drawable.green_tshirt,
@@ -123,7 +123,7 @@ public class HomepageActivity extends AppCompatActivity {
         btn_Men.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomepageActivity.this, CategoryPageActivity.class);
+                Intent intent = new Intent(HomepageActivity.this, MenPageActivity.class);
                 startActivity(intent);
             }
         });

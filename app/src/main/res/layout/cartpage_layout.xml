@@ -11,5 +11,29 @@
     <include
         layout="@layout/appbar"
         />
+        <ScrollView
+            android:layout_below="@+id/myAppBar"
+            android:id="@+id/cart_layout"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="550dp">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcView_Cart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btn_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:layout_below="@id/cart_layout"
+            android:layout_marginTop="40dp"
+            android:layout_centerInParent="true"
+            android:text="CheckOut"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25dp" />
 </RelativeLayout>
