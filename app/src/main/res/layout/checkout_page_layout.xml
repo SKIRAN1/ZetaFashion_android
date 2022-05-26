@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CheckoutPageActivity"
+    android:background="@color/black"
+    >
+
+    <include layout="@layout/appbar" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcView_Checkout"
+        android:layout_below="@+id/myAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+            <LinearLayout
+                android:layout_below="@+id/rcView_Checkout"
+                android:id="@+id/scr_linear"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text="Total Amount:"
+                    android:textColor="@color/white"
+                    android:textSize="24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="24dp" />
+            </LinearLayout>
+    <ScrollView
+        android:layout_below="@+id/scr_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_below="@id/scr_linear"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+      <com.google.android.material.textfield.TextInputLayout
+        android:layout_below="@id/scr_linear"
+        android:id="@+id/et_checkoutName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:hint="Full Name"
+        app:helperTextTextColor="@android:color/holo_red_dark"
+        app:boxStrokeColor="@color/black"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_checkoutEmail"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            app:endIconDrawable="@drawable/ic_baseline_email_24"
+            app:endIconMode="custom"
+            app:boxStrokeColor="@color/black"
+            app:errorTextColor="@android:color/holo_red_dark"
+            app:hintTextColor="@android:color/holo_red_dark"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="20dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_checkoutPhone"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            app:prefixText="+1"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_baseline_phone_24"
+            app:boxStrokeColor="@color/black"
+            app:errorTextColor="@android:color/holo_red_dark"
+            app:hintTextColor="@android:color/holo_red_dark"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:ems="10"
+                android:inputType="number"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="20dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_checkoutAddress"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            android:hint="Address"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_home"
+            app:boxStrokeColor="@color/black"
+            app:errorTextColor="@android:color/holo_red_dark"
+            app:hintTextColor="@android:color/holo_red_dark"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:ems="10"
+                android:inputType="text"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="20dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/btn_pay"
+        android:layout_below="@id/details"
+        android:layout_centerInParent="true"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="Pay"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/black"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="26dp"
+        />
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
