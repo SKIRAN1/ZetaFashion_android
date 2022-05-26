@@ -27,7 +27,8 @@ public class ProfilepageActivity extends AppCompatActivity {
     EditText tf_userAccountEmail,tf_userAccountPhone,tf_userAccountPassword;
     TextView userAccountName,title;
     Button btn_signOut;
-    ImageView profile,wallet,cart;
+    String Phone;
+    ImageView profile,cart,profilePic;
 
     private FirebaseUser user;
     private DatabaseReference myRef;
@@ -40,8 +41,8 @@ public class ProfilepageActivity extends AppCompatActivity {
 
         profile = findViewById(R.id.profile);
         cart = findViewById(R.id.cart);
-        wallet = findViewById(R.id.wallet);
         title = findViewById(R.id.title);
+        profilePic = findViewById(R.id.circular_pic);
 
         title.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,14 +59,6 @@ public class ProfilepageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-//        wallet.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(ProfilepageActivity.this, WalletpageActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,21 +80,24 @@ public class ProfilepageActivity extends AppCompatActivity {
         myRef = FirebaseDatabase.getInstance().getReference("Users");
         userId = user.getUid();
 
+//        profilePic.setImageURI(user.getPhotoUrl());
+
 
         myRef.orderByChild("Email").equalTo(user.getEmail()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 for(DataSnapshot ds : snapshot.getChildren()){
-                  String  name = ""+ds.child("Name").getValue();
+                 String  name = ""+ds.child("Name").getValue();
                   String email = ""+ds.child("Email").getValue();
                   String phone = ""+ds.child("Phone").getValue();
                   String password = ""+ds.child("Password").getValue();
+                  Phone = ds.child("Phone").getValue().toString();
                   userAccountName.setText(name);
                   tf_userAccountEmail.setText(email);
                   tf_userAccountPhone.setText(phone);
                   tf_userAccountPassword.setText(password);
-                    Toast.makeText(ProfilepageActivity.this, String.valueOf(ds.getValue()), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProfilepageActivity.this, Phone, Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -110,34 +106,6 @@ public class ProfilepageActivity extends AppCompatActivity {
                 Toast.makeText(ProfilepageActivity.this, "Error! Please try again", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-//        myRef.child("5146634590").addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-////                accountName = snapshot.child(userId).child("Name").getValue(String.class);
-////                accountEmail = snapshot.child(userId).child("Email").getValue(String.class);
-//                Long n = snapshot.getChildrenCount();
-//
-//                Toast.makeText(ProfilepageActivity.this, "hey" +n , Toast.LENGTH_SHORT).show();
-//
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//                Toast.makeText(ProfilepageActivity.this, "Error", Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
-
-
-//        userAccountName.setText(accountName);
-//        tf_userAccountEmail.setText(accountEmail);
-//        tf_userAccountPassword.setText();
-       // tf_userAccountPhone.setText(accountPhone);
 
         btn_signOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,8 +119,7 @@ public class ProfilepageActivity extends AppCompatActivity {
     private void UserLogout()
     {
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(ProfilepageActivity.this, MainActivity.class);
+        Intent intent = new Intent(ProfilepageActivity.this, LoginPageActivity.class);
         startActivity(intent);
-
     }
 }

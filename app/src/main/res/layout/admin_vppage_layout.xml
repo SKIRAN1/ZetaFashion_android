@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.AdminVPpageActivity"
+    android:background="@color/black"
+    >
+
+    <include
+        layout="@layout/admin_appbar"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myAdminAppBar"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myAdminAppBar"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_Products"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Products!"
+            android:textSize="36dp"
+            android:textColor="@color/white"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vp_RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_goHome"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go Home"
+            android:backgroundTint="@color/white"
+            android:width="260dp"
+            android:height="60dp"
+            android:textSize="22dp"
+            android:textColor="@android:color/holo_red_dark"
+            />
+    </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

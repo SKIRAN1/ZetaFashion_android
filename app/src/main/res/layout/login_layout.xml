@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="352dp"
         android:layout_height="204dp"
         android:layout_marginTop="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/logo" />
 
 <!--    <EditText-->
@@ -39,6 +36,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="28dp"
         app:boxStrokeColor="@color/black"
+        android:layout_gravity="center"
         android:hint="Email"
         app:endIconMode="custom"
         app:endIconDrawable="@drawable/ic_baseline_email_24"
@@ -80,6 +78,7 @@
         android:layout_width="360dp"
         android:layout_height="60dp"
         android:layout_marginTop="28dp"
+        android:layout_gravity="center"
         android:hint="Password"
         app:hintTextColor="@android:color/holo_red_dark"
         app:boxStrokeColor="@color/black"
@@ -102,6 +101,7 @@
         android:id="@+id/loginButton"
         android:layout_width="180dp"
         android:layout_height="60dp"
+        android:layout_gravity="center"
         android:layout_marginTop="32dp"
         android:backgroundTint="@android:color/black"
         android:capitalize="none"
@@ -112,28 +112,61 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Password" />
-
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:gravity="right"
+       android:layout_marginRight="30dp"
+       >
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="325dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="      Don't have Account? SignUp"
+        android:text="Don't have Account?"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+       <TextView
+           android:id="@+id/tV_SignUp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="24dp"
+           android:text=" SignUp"
+           android:textSize="20dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.884"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/loginButton"
+           />
+   </LinearLayout>
+    <TextView
+        android:id="@+id/tv_Admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="I am Admin"
+        android:textSize="20dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        >
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="94dp"
-        android:layout_height="97dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="76dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton"
-        app:srcCompat="@drawable/facebooklogo" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView2"-->
+<!--        android:layout_width="94dp"-->
+<!--        android:layout_height="97dp"-->
+<!--        android:layout_marginStart="68dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/loginButton"-->
+<!--        app:srcCompat="@drawable/facebooklogo" />-->
 
 <!--    <ImageButton-->
 <!--        android:id="@+id/btn_google"-->
@@ -158,13 +191,13 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/loginButton"-->
 <!--        app:layout_constraintVertical_bias="0.974" />-->
 
-    <ImageView
-        android:id="@+id/btn_google"
-        android:layout_width="95dp"
-        android:layout_height="95dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="76dp"
-        android:src="@drawable/googlelogo"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <ImageView-->
+<!--        android:id="@+id/btn_google"-->
+<!--        android:layout_width="92dp"-->
+<!--        android:layout_height="92dp"-->
+<!--        android:layout_marginStart="52dp"-->
+<!--        android:src="@drawable/googlelogo"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imageView2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/loginButton" />-->
+    </LinearLayout>
+</LinearLayout>
