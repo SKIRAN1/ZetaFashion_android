@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -35,6 +37,7 @@ public class HomepageActivity extends AppCompatActivity {
 
 
     ImageSlider imageSlider;
+    SearchView searchView;
     ImageView profile,cart;
     TextView title,tv_cartNumber;
     DatabaseReference  myRef;
@@ -60,6 +63,8 @@ public class HomepageActivity extends AppCompatActivity {
         setContentView(R.layout.homepage_layout);
 
         title = findViewById(R.id.title);
+        searchView = findViewById(R.id.searchView);
+        searchView.setVisibility(View.VISIBLE);
 //        tv_cartNumber = findViewById(R.id.tv_cartNumber);
         profile = findViewById(R.id.profile);
         cart = findViewById(R.id.cart);
@@ -93,6 +98,26 @@ public class HomepageActivity extends AppCompatActivity {
         slideModels.add(new SlideModel(R.drawable.sliderimage6));
         imageSlider.setImageList(slideModels, true);
 
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList<Products> filteredProducts = new ArrayList<>();
+                for(Products product : products){
+                    if(product.getProductName().toLowerCase().contains(s.toLowerCase())){
+                        filteredProducts.add(product);
+                    }
+                }
+                HomeAdapter adapter = new HomeAdapter(getApplicationContext(),filteredProducts);
+                recyclerView.setAdapter(adapter);
+                return false;
+            }
+        });
 
         title.setOnClickListener(new View.OnClickListener() {
             @Override

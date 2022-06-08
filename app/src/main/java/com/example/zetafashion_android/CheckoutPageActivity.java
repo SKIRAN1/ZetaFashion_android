@@ -194,7 +194,7 @@ public class CheckoutPageActivity extends AppCompatActivity {
                     et_checkoutName.getEditText().setText(dataSnapshot.child("Name").getValue().toString());
                     et_checkoutPhone.getEditText().setText(Phone);
                 }
-                databaseReference.child(Phone).child("Cart Items").addValueEventListener(new ValueEventListener() {
+                databaseReference.child("Users").child(Phone).child("Cart Items").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {

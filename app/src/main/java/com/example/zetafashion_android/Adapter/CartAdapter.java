@@ -28,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> {
 
@@ -53,6 +54,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -129,37 +131,37 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         holder.btn_addQuantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (q > 0) {
+                 if (q > 0) {
                     q = q + 1;
                     holder.quantity.setText(String.valueOf(q));
-//                    databaseReference.orderByChild("Email").equalTo(user.getEmail()).addListenerForSingleValueEvent(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                                Phone = dataSnapshot.child("Phone").getValue().toString();
-//                            }
-//                            HashMap<String, Object> userdataMap = new HashMap<>();
-//                            userdataMap.put("ProductName", cProduct.getProductName());
-//                            userdataMap.put("ProductPrice", cProduct.getProductPrice());
-//                            userdataMap.put("ProductCategory", cProduct.getProductCategory());
-//                            userdataMap.put("ProductImageUrl", cProduct.getProductImageUrl());
-//                            userdataMap.put("ProductQuantity", String.valueOf(q));
-//                            databaseReference.child(Phone).child("Cart Items").child(cProduct.getProductName()).updateChildren(userdataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<Void> task) {
-//                                    Toast.makeText(context, "Updated", Toast.LENGTH_SHORT).show();
-//
-//                                   // holder.quantity.setText(cProduct.getProductQuantity());
-//                                }
-//                            });
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError error) {
-//                            Toast.makeText(context, "Error Try Again!", Toast.LENGTH_SHORT).show();
-//                        }
-//
-//                    });
+                    databaseReference.orderByChild("Email").equalTo(user.getEmail()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                Phone = dataSnapshot.child("Phone").getValue().toString();
+                            }
+                            HashMap<String, Object> userdataMap = new HashMap<>();
+                            userdataMap.put("ProductName", cProduct.getProductName());
+                            userdataMap.put("ProductPrice", cProduct.getProductPrice());
+                            userdataMap.put("ProductCategory", cProduct.getProductCategory());
+                            userdataMap.put("ProductImageUrl", cProduct.getProductImageUrl());
+                            userdataMap.put("ProductQuantity", String.valueOf(q));
+                            databaseReference.child(Phone).child("Cart Items").child(cProduct.getProductName()).updateChildren(userdataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(context, "Updated", Toast.LENGTH_SHORT).show();
+                                    context.startActivity(new Intent(context, CartpageActivity.class));
+                                   // holder.quantity.setText(cProduct.getProductQuantity());
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(context, "Error Try Again!", Toast.LENGTH_SHORT).show();
+                        }
+
+                    });
                 }
                 else{
 

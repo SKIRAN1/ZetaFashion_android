@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MenPageActivity extends AppCompatActivity {
 
@@ -29,7 +31,7 @@ public class MenPageActivity extends AppCompatActivity {
     RecyclerView rcView_Category;
     MenAdapter menAdapter;
     ArrayList<MenProducts> menProducts;
-
+    Button btn_highPrice, btn_lowPrice;
     DatabaseReference myRef;
 
     @Override
@@ -40,7 +42,8 @@ public class MenPageActivity extends AppCompatActivity {
         profile = findViewById(R.id.profile);
         cart = findViewById(R.id.cart);
         title = findViewById(R.id.title);
-
+        btn_highPrice = findViewById(R.id.btn_highPrice);
+        btn_lowPrice = findViewById(R.id.btn_lowPrice);
         rcView_Category = findViewById(R.id.rcView_Category);
         rcView_Category.setLayoutManager(new LinearLayoutManager(this));
         menProducts = new ArrayList<>();
@@ -72,6 +75,24 @@ public class MenPageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MenPageActivity.this, CartpageActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btn_highPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Collections.sort(menProducts, MenProducts.ProductPriceHLComparator);
+                menAdapter.notifyDataSetChanged();
+                Toast.makeText(MenPageActivity.this, "Sort High to Low Price", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btn_lowPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Collections.sort(menProducts, MenProducts.ProductPriceLHComparator);
+                menAdapter.notifyDataSetChanged();
+                Toast.makeText(MenPageActivity.this, "Sort Low to HIgh Price", Toast.LENGTH_SHORT).show();
             }
         });
 
