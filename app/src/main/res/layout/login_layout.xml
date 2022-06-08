@@ -33,7 +33,7 @@
         android:id="@+id/et_Email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="360dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         app:boxStrokeColor="@color/black"
         android:layout_gravity="center"
@@ -76,7 +76,7 @@
         android:id="@+id/et_Password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="360dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:layout_gravity="center"
         android:hint="Password"
@@ -98,7 +98,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/btn_login"
         android:layout_width="180dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
@@ -129,7 +129,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
        <TextView
            android:id="@+id/tV_SignUp"
            android:layout_width="wrap_content"
@@ -140,7 +140,7 @@
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintHorizontal_bias="0.884"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/loginButton"
+           app:layout_constraintTop_toBottomOf="@+id/btn_login"
            />
    </LinearLayout>
     <TextView

@@ -34,7 +34,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class HomepageActivity extends AppCompatActivity {
 
 
-
     ImageSlider imageSlider;
     ImageView profile,cart;
     TextView title,tv_cartNumber;

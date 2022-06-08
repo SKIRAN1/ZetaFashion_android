@@ -109,8 +109,8 @@ public class KidAdapter extends RecyclerView.Adapter<KidAdapter.MyViewHolder>{
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            productName = itemView.findViewById(R.id.pro_Name);
-            productPrice = itemView.findViewById(R.id.pro_price);
+            productName = itemView.findViewById(R.id.tv_productName);
+            productPrice = itemView.findViewById(R.id.tv_productPrice);
             productImage = itemView.findViewById(R.id.pro_image);
             btn_addCart = itemView.findViewById(R.id.btn_addCart);
         }

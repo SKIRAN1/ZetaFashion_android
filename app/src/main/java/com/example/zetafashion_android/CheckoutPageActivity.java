@@ -37,7 +37,6 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import papaya.in.sendmail.SendMail;
 
 public class CheckoutPageActivity extends AppCompatActivity {
 

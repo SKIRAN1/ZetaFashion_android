@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class LoginPageActivity extends AppCompatActivity {
 
     TextView tv_SignUp, tv_Admin;
-    String user;
+    String user,password,email;
     EditText tf_Email;
     Button btn_login;
     ImageView btn_google;
@@ -52,7 +53,7 @@ public class LoginPageActivity extends AppCompatActivity {
         setContentView(R.layout.login_layout);
 
 
-        btn_login = (Button) findViewById(R.id.loginButton);
+        btn_login = (Button) findViewById(R.id.btn_login);
         et_Email = (TextInputLayout) findViewById(R.id.et_Email);
         et_Password = (TextInputLayout) findViewById(R.id.et_Password);
         tv_SignUp = (TextView) findViewById(R.id.tV_SignUp);
@@ -135,15 +136,43 @@ public class LoginPageActivity extends AppCompatActivity {
         }
     }
 
-    private void LoginUser() {
-        String email = et_Email.getEditText().getText().toString();
-        String password = et_Password.getEditText().getText().toString();
+    private Boolean ValidateEmail() {
+        email = et_Email.getEditText().getText().toString();
 
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(this, "Please Enter Your Email", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "Please Enter Your Password", Toast.LENGTH_SHORT).show();
-        } else {
+            et_Email.setError("Email is Required");
+            return false;
+        }else if(!(Patterns.EMAIL_ADDRESS.matcher(email).matches())){
+            et_Email.setError("Enter Valid email");
+            return false;
+        }else{
+            et_Email.setError(null);
+            et_Email.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private Boolean ValidatePassword() {
+
+        password = et_Password.getEditText().getText().toString();
+
+        if (TextUtils.isEmpty(password)) {
+            et_Password.setError("Phone Number is Required");
+            return false;
+        }else if(password.length() < 6){
+            et_Password.setError("Password should be more than six");
+            return  false;
+        }
+        else{
+            et_Password.setError(null);
+            et_Password.setErrorEnabled(false);
+
+            return true;
+        }
+    }
+    private void LoginUser() {
+        if(!ValidateEmail()  | !ValidatePassword()){
+            return;
+        }
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -161,4 +190,3 @@ public class LoginPageActivity extends AppCompatActivity {
         }
     }
 
-}

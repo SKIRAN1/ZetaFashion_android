@@ -11,9 +11,49 @@
    <include
     layout="@layout/appbar"
     />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/filterLayout"
+       android:orientation="horizontal"
+       android:layout_below="@+id/myAppBar"
+       android:padding="10dp"
+       >
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="0.5"
+           android:gravity="center"
+           >
+       <Button
+           android:id="@+id/btn_highPrice"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="High Price"
+           android:backgroundTint="@android:color/white"
+           android:textColor="@android:color/holo_orange_dark"
+           />
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="0.5"
+           android:gravity="center"
+           >
+           <Button
+               android:id="@+id/btn_lowPrice"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="low Price"
+               android:backgroundTint="@android:color/white"
+               android:textColor="@android:color/holo_orange_dark"
+               />
+       </LinearLayout>
+   </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/myAppBar"
-            android:id="@+id/rcView_Category"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+        android:id="@+id/rcView_Category"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/filterLayout" />
 </RelativeLayout>

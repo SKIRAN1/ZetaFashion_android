@@ -31,6 +31,7 @@ public class SignupActivity extends AppCompatActivity {
     Button btn_signUp;
     private ProgressDialog loadingBar;
     FirebaseAuth mAuth;
+    String email,password,phone,name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,37 +54,76 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
+    private Boolean ValidateName() {
 
-    private void createAccount() {
-        String password = et_userPassword.getEditText().getText().toString();
-        String email = et_userEmail.getEditText().getText().toString();
-        String name = et_userName.getEditText().getText().toString();
-        String phone = et_userPhone.getEditText().getText().toString();
+        name = et_userName.getEditText().getText().toString();
 
+        if (TextUtils.isEmpty(name)) {
+            et_userName.setError("Name is Required");
+            return false;
+        }else{
+            et_userName.setError(null);
+            et_userName.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private Boolean ValidateEmail() {
+        email = et_userEmail.getEditText().getText().toString();
 
         if (TextUtils.isEmpty(email)) {
-            //   Toast.makeText(this,"Please Enter Your Email",Toast.LENGTH_SHORT).show();
             et_userEmail.setError("Email is Required");
-            et_userEmail.requestFocus();
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            et_userEmail.setError("Please Provide valid Email");
-            et_userEmail.requestFocus();
-        } else if (TextUtils.isEmpty(password)) {
-            //  Toast.makeText(this,"Please Enter Your Password",Toast.LENGTH_SHORT).show();
-            et_userPassword.setError("Password is Required");
-            et_userPassword.requestFocus();
-        } else if (password.length() < 6) {
-            et_userPassword.setError("Password should be at least 6 characters!");
-            et_userPassword.requestFocus();
-        } else if (TextUtils.isEmpty(name)) {
-            //  Toast.makeText(this,"Please Enter Your Name",Toast.LENGTH_SHORT).show();
-            et_userName.setError("Name is Required");
-            et_userName.requestFocus();
-        } else if (TextUtils.isEmpty(phone)) {
-         //   Toast.makeText(this, "Please Enter Your Password", Toast.LENGTH_SHORT).show();
-            et_userPhone.setError("PhoneNumber is Required");
-            et_userPhone.requestFocus();
-        } else{
+            return false;
+        }else if(!(Patterns.EMAIL_ADDRESS.matcher(email).matches())){
+            et_userEmail.setError("Enter Valid email");
+            return false;
+        }else{
+            et_userEmail.setError(null);
+            et_userEmail.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private Boolean ValidatePhone() {
+
+        phone = et_userPhone.getEditText().getText().toString();
+
+        if (TextUtils.isEmpty(phone)) {
+            et_userPhone.setError("Phone Number is Required");
+            return false;
+        }else if(phone.length() < 10){
+            et_userPhone.setError("PhoneNumber is not valid");
+            return  false;
+        }
+        else{
+            et_userPhone.setError(null);
+            et_userPhone.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private Boolean ValidatePassword() {
+
+        password = et_userPassword.getEditText().getText().toString();
+
+
+        if (TextUtils.isEmpty(password)) {
+            et_userPassword.setError("Address is Required");
+            return false;
+        }else if(password.length() < 6){
+            et_userPassword.setError("Password is too short!");
+            return false;
+        }
+        else{
+            et_userPassword.setError(null);
+            et_userPassword.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private void createAccount() {
+
+
+        if(!ValidateName() | !ValidateEmail()  | !ValidatePassword() | !ValidatePhone()){
+            return;
+        }
             loadingBar.setTitle("Creating Account");
             loadingBar.setMessage("Please wait until we are checking credentials");
             loadingBar.setCanceledOnTouchOutside(false);
@@ -92,7 +132,6 @@ public class SignupActivity extends AppCompatActivity {
             ValidateEmail(name,phone,email,password);
         }
 
-    }
     private void ValidateEmail(String name, String phone, String email, String password) {
         final DatabaseReference myRef;
         myRef = FirebaseDatabase.getInstance().getReference();

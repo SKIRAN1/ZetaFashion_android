@@ -8,9 +8,9 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:src="@drawable/men_category"
-        android:padding="10dp"
+        android:padding="6dp"
         android:id="@+id/profile"
         />
     <TextView
@@ -24,21 +24,41 @@
         android:textStyle="bold"
         />
 
-    <ImageView
-        android:id="@+id/wallet"
+    <SearchView
+        android:id="@+id/searchView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_wallet"
+        android:queryHint="Search"
         android:layout_gravity="right"
-        android:layout_margin="10dp"
+        android:searchIcon="@drawable/search"
+        android:background="@android:color/holo_orange_dark"
+        android:visibility="gone"
         />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        >
     <ImageView
         android:id="@+id/cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_shopping_cart"
         android:layout_gravity="right"
-        android:layout_margin="10dp"
+        android:layout_marginRight="25dp"
+        android:elevation="0dp"
         />
 
+<!--        <TextView-->
+<!--            android:id="@+id/tv_cartNumber"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:elevation="20dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginBottom="6dp"-->
+<!--            android:text="0"-->
+<!--            android:textSize="13dp"-->
+<!--            android:textColor="@android:color/holo_red_dark" />-->
+    </FrameLayout>
 </androidx.appcompat.widget.Toolbar>

@@ -9,51 +9,54 @@
     >
 
     <include layout="@layout/appbar" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcView_Checkout"
-        android:layout_below="@+id/myAppBar"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
-            <LinearLayout
-                android:layout_below="@+id/rcView_Checkout"
-                android:id="@+id/scr_linear"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:gravity="center"
-                    android:text="Total Amount:"
-                    android:textColor="@color/white"
-                    android:textSize="24dp" />
+        android:layout_height="200dp"
+        android:layout_below="@+id/myAppBar" />
+<!--            <LinearLayout-->
+<!--                android:layout_below="@+id/rcView_Checkout"-->
+<!--                android:id="@+id/scr_linear"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:gravity="center"-->
+<!--                >-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="0.5"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Total Amount:"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="24dp" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textColor="@color/white"
-                    android:textSize="24dp" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="0.5"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="0"-->
+<!--                    android:id="@+id/tv_totalAmount"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="24dp" />-->
+<!--            </LinearLayout>-->
     <ScrollView
-        android:layout_below="@+id/scr_linear"
+        android:layout_below="@+id/rcView_Checkout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        >
     <LinearLayout
         android:id="@+id/details"
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        android:layout_below="@id/scr_linear"
         android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
         >
       <com.google.android.material.textfield.TextInputLayout
-        android:layout_below="@id/scr_linear"
+          android:layout_marginTop="10dp"
         android:id="@+id/et_checkoutName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="360dp"

@@ -49,7 +49,7 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_productCategory"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="360dp"
             android:layout_height="80dp"
             android:hint="ProductCategory"
@@ -59,13 +59,20 @@
             android:layout_marginTop="10dp"
             >
 
-            <com.google.android.material.textfield.TextInputEditText
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:cursorVisible="true"-->
+<!--                android:ems="10"-->
+<!--                android:textColor="@android:color/holo_orange_dark"-->
+<!--                android:textSize="20dp" />-->
+            <AutoCompleteTextView
+                android:editable="false"
+                android:id="@+id/autoCompleteText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:cursorVisible="true"
-                android:ems="10"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textSize="20dp" />
+                android:layout_height="match_parent"
+                android:textSize="20dp"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

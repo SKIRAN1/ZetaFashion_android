@@ -58,8 +58,8 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.MyView
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            productName = itemView.findViewById(R.id.pro_Name);
-            productPrice = itemView.findViewById(R.id.pro_price);
+            productName = itemView.findViewById(R.id.tv_productName);
+            productPrice = itemView.findViewById(R.id.tv_productPrice);
             productImage = itemView.findViewById(R.id.pro_image);
             tv_QtyNumber = itemView.findViewById(R.id.tv_QtyNumber);
         }
