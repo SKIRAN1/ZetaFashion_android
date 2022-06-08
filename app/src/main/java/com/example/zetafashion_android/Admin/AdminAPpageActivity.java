@@ -1,10 +1,14 @@
 package com.example.zetafashion_android.Admin;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -29,12 +33,15 @@ public class AdminAPpageActivity extends AppCompatActivity {
     TextInputLayout et_productName,et_productPrice,et_productCategory,et_productImage;
     private ProgressDialog loadingBar;
     DatabaseReference databaseReference;
-
+    Context context;
+    AutoCompleteTextView autoCompleteTextView;
+    String [] categories;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_appage_layout);
 
+        autoCompleteTextView =(AutoCompleteTextView) findViewById(R.id.autoCompleteText);
         btn_cancel = findViewById(R.id.btn_Cancel);
         btn_add = findViewById(R.id.btn_Add);
         et_productCategory =(TextInputLayout) findViewById(R.id.et_productCategory);
@@ -43,7 +50,9 @@ public class AdminAPpageActivity extends AppCompatActivity {
         et_productImage = (TextInputLayout) findViewById(R.id.et_productImage);
         loadingBar = new ProgressDialog(this);
         databaseReference = FirebaseDatabase.getInstance().getReference("Products");
-
+        categories = getResources().getStringArray(R.array.categories);
+        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),R.layout.dropdown_item,categories);
+        autoCompleteTextView.setAdapter(adapter);
 
 
         btn_add.setOnClickListener(new View.OnClickListener() {

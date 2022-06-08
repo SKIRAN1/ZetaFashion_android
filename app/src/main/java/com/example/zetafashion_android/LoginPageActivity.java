@@ -156,7 +156,7 @@ public class LoginPageActivity extends AppCompatActivity {
         password = et_Password.getEditText().getText().toString();
 
         if (TextUtils.isEmpty(password)) {
-            et_Password.setError("Phone Number is Required");
+            et_Password.setError("Password is Required");
             return false;
         }else if(password.length() < 6){
             et_Password.setError("Password should be more than six");

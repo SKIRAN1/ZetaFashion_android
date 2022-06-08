@@ -25,7 +25,7 @@
             android:name=".WomenPageActivity"
             android:exported="false" />
         <activity
-            android:name=".CategoryPageActivity"
+            android:name=".MenPageActivity"
             android:exported="false" />
         <activity
             android:name=".Admin.AdminVOpageActivity"
